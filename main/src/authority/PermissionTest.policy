@@ -1,0 +1,4 @@
+grant
+{
+    permission authority.WordCheckPermission "sex,drugs,Java","avoid";
+};
