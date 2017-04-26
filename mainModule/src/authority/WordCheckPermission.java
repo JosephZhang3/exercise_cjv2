@@ -1,4 +1,4 @@
-﻿package authority;
+package authority;
 
 import java.security.*;
 import java.util.Arrays;
