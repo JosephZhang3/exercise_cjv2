@@ -11,16 +11,16 @@ public class CopyFolder {
     public static void main(String[] args) {
         String sourcePath = "c:" + File.separator + "source";//被复制的文件夹的路径
         String targetPath = "c:" + File.separator + "target";//粘贴后形成的文件夹的路径
-        File inputFolder = new File(sourcePath);
-        File outputFolder = new File(targetPath);
+        File sourceFolder = new File(sourcePath);
+        File targetFolder = new File(targetPath);
         // 如果源文件夹不存在，报错
-        if (!inputFolder.exists()) {
-            System.out.println(inputFolder + "源文件夹路径错误！！！");
+        if (!sourceFolder.exists()) {
+            System.out.println(sourceFolder + "源文件夹路径错误！！！");
         } else {
-            System.out.println("源文件夹路径为" + inputFolder);
-            System.out.println("目标文件夹路径为" + outputFolder);
+            System.out.println("源文件夹路径为" + sourceFolder);
+            System.out.println("目标文件夹路径为" + targetFolder);
             System.out.println();
-            copy("c:" + File.separator + "source", "d:" + File.separator + "test");
+            copy("c:" + File.separator + "source", "c:" + File.separator + "target");
         }
     }
 
@@ -29,16 +29,16 @@ public class CopyFolder {
      * @param targetPath 目标路径
      */
     public static void copy(String sourcePath, String targetPath) {
-        File inputFolder = new File(sourcePath);
-        File outputFolder = new File(targetPath);
+        File sourceFolder = new File(sourcePath);
+        File targetFolder = new File(targetPath);
         /*
          * 如果目标文件夹不存在则创建（第一次调用时可能已经存在也可能不存在，之后的每次调用因为是子文件夹所以肯定不存在），
 		 * 源文件夹每次调用肯定存在，不用判断
 		 */
-        if (!outputFolder.exists()) {
-            outputFolder.mkdirs();
+        if (!targetFolder.exists()) {
+            targetFolder.mkdirs();
         }
-        File files[] = inputFolder.listFiles();//为源文件夹下的所有成员（可能是文件也可能是文件夹）创建集合
+        File files[] = sourceFolder.listFiles();//为源文件夹下的所有成员（可能是文件也可能是文件夹）创建集合
         for (File fileObject : files) {
             // 如果遍历到的是文件，复制该文件到目标位置
             if (fileObject.isFile()) {
