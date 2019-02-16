@@ -1,4 +1,4 @@
-package printwriter;
+package stream.objectStream;
 
 public class Book implements java.io.Serializable {
     private String bookName;

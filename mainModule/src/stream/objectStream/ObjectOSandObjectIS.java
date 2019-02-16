@@ -1,4 +1,4 @@
-package objectStream;
+package stream.objectStream;
 
 import java.io.*;
 

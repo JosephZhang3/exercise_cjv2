@@ -1,4 +1,4 @@
-package charStream;
+package stream.charStream;
 
 import java.util.*;
 
