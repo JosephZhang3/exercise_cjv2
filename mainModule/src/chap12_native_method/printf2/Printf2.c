@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <float.h>
 
+//TODO 这些c代码都是什么意思？似懂非懂
+
 char* find_format(const char format[])
 {
     char* p;
@@ -40,7 +42,8 @@ JNIEXPORT jstring JNICALL Java_Printf2_sprint(JNIEnv* env, jclass cl, jstring fo
     char* fmt;
     jstring ret;
 
-    cformat = (*env)->GetStringUTFChars(env,format,NULL);//JNI函数调用，转换java格式为c格式
+    cformat = (*env)->GetStringUTFChars(env,format,NULL);
+    //JNI函数调用，转换java格式为c格式，jstring -> const  char*  注意：java中String类型不可变，所以这里C的char*类型也必须一样不可变
     fmt = find_format(cformat);
 
     if(fmt == NULL)
