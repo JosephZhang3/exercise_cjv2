@@ -29,7 +29,7 @@ char* find_format(const char format[])
         q += strspn(q, "0123456789");
     }
     if(strchr("eEfFgG",*q) == NULL)
-        return NULL:
+        return NULL;
 
     return p;
 }
@@ -42,6 +42,7 @@ JNIEXPORT jstring JNICALL Java_Printf2_sprint(JNIEnv* env, jclass cl, jstring fo
 
     cformat = (*env)->GetStringUTFChars(env,format,NULL);//JNI函数调用，转换java格式为c格式
     fmt = find_format(cformat);
+
     if(fmt == NULL)
         ret = format;
     else
@@ -49,14 +50,13 @@ JNIEXPORT jstring JNICALL Java_Printf2_sprint(JNIEnv* env, jclass cl, jstring fo
         char* cret;
         int width = atoi(fmt);
         if(width == 0)
-        {
             width = DBL_DIG + 10;
-            cret = (char*)malloc(strlen(cformat) + width);//分配内存
-            sprintf(cret,cformat,x);
-            ret = (*env)->NewStringUTF(env,cret);
-            free(cret);//释放内存
-        }
+
+	cret = (char*)malloc(strlen(cformat) + width);//分配内存
+        sprintf(cret,cformat,x);
+        ret = (*env)->NewStringUTF(env,cret);
+        free(cret);//释放内存
     }
-    （*env)->ReleaseStringUTFChars(env,format,cformat);
+    (*env)->ReleaseStringUTFChars(env,format,cformat);
     return ret;
 }
