@@ -1,23 +1,19 @@
-class Employee
-{
+class Employee {
     private String name;
     private double salary;
 
     public native void raiseSalary(double byPercent);
 
-    public Employee(String n,double s)
-    {
+    public Employee(String n, double s) {
         name = n;
-	salary = s;
+        salary = s;
     }
 
-    public void print()
-    {
+    public void print() {
         System.out.println(name + " " + salary);
     }
 
-    static
-    {
-       System.loadLibrary("Employee");
+    static {
+        System.loadLibrary("Employee");
     }
 }
