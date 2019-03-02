@@ -9,10 +9,10 @@ extern "C" {
 #endif
 /*
  * Class:     Printf4
- * Method:    fPrint
+ * Method:    fprint
  * Signature: (Ljava/io/PrintWriter;Ljava/lang/String;D)V
  */
-JNIEXPORT void JNICALL Java_Printf4_fPrint
+JNIEXPORT void JNICALL Java_Printf4_fprint
   (JNIEnv *, jclass, jobject, jstring, jdouble);
 
 #ifdef __cplusplus
