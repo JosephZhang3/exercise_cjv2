@@ -1,9 +1,9 @@
-public class HelloNativeTest{
-    public static void main(String[] args){
+public class HelloNativeTest {
+    public static void main(String[] args) {
         HelloNative.greeting();
     }
 
-    static{
+    static {
         System.loadLibrary("HelloNative");
     }
 }
